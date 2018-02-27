@@ -42,9 +42,10 @@ export default class extends Component{
   }
 
   checkVisible() {
-    this.props.onChange({
+    const { onChange, offset } = this.props;
+    onChange({
       target:{
-        value: window.pageYOffset > parseInt(this.props.offset)
+        value: window.pageYOffset > parseInt(offset)
       }
     })
   }
@@ -54,7 +55,7 @@ export default class extends Component{
   };
 
   render(){
-    const { className, value, speed, ...props } = this.props;
+    const { className, value, speed, offset, ...props } = this.props;
     return (
       <button data-visible={value} onClick={this._onClick} {...props} className={classNames('react-to-top',className)} />
     );

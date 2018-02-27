@@ -1,0 +1,21 @@
+*{margin: 0;padding:0;box-sizing: border-box;}
+ul,li{list-style: none;}
+
+@import './components/style.scss';
+
+
+.hello-react-to-top{
+  color:#F00;
+
+  header,
+  footer{
+    padding:10px 20px;
+  }
+
+  header{
+    background: #ccc;
+  }
+  footer{
+    background: #eee;
+  }
+}

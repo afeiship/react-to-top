@@ -1,0 +1,47 @@
+$react-to-top-options:(
+  active-opacity: 0.6,
+  enlarge-distance: -10px,
+  transition-duration: 0.3s
+)!default;
+
+.react-to-top{
+
+  $enlarge-distance: map-get($map: $react-to-top-options, $key: enlarge-distance);
+  $active-opacity: map-get($map: $react-to-top-options, $key: active-opacity);
+  $transition-duration: map-get($map: $react-to-top-options, $key: transition-duration);
+
+  background: none;
+  border: none;
+  outline: none;
+  position: fixed;
+  cursor: pointer;
+  transition: opacity $transition-duration;
+
+  &:after{
+    content:'';
+    position: absolute;
+    top:$enlarge-distance;
+    right:$enlarge-distance;
+    bottom:$enlarge-distance;
+    left:$enlarge-distance;
+  }
+
+  &:active{
+    opacity: $active-opacity;
+  }
+
+
+  &[data-visible=true]{
+    opacity: 1;
+    z-index:2;
+  }
+
+  &[data-visible=false]{
+    opacity: 0;
+    z-index:-1;
+  }
+
+  >*{
+    vertical-align: top;
+  }
+}

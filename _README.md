@@ -20,3 +20,6 @@ $react-to-top-options:(
 
 @import '~node_modules/react-to-top/style.scss';
 ```
+
+## bug:
+- [ ] z-index conflict with transition animate.

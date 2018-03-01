@@ -8,7 +8,8 @@ import ReactToTop from './main';
 
 class App extends React.Component{
   state = {
-    value: false
+    value: false,
+    items:[]
   };
 
   constructor(props){
@@ -22,6 +23,12 @@ class App extends React.Component{
     this.setState({ value: e.target.value})
   };
 
+  _onUpdate = e=>{
+    const {items} = this.state;
+    items.push('1111');
+    this.setState({ items });
+  };
+
   render(){
     return (
       <div className="hello-react-to-top">
@@ -29,6 +36,12 @@ class App extends React.Component{
           <img src={require('./assets/back-to-top.png')} width="40" />
         </ReactToTop>
 
+        <button onClick={this._onUpdate}>Update page content</button>
+        {
+          this.state.items.map((item,index)=>{
+            return <p key={index}>{item}</p>
+          })
+        }
         <header>HEADER</header>
         <p>test text!</p> <br/>
         <p>test text!</p> <br/>

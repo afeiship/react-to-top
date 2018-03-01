@@ -85,6 +85,7 @@
     "classnames": "^2.2.5",
     "next-dom-event": "github:afeiship/next-dom-event",
     "next-smooth-scroll": "github:afeiship/next-smooth-scroll",
+    "next-throttle": "github:afeiship/next-throttle",
     "noop": "github:afeiship/noop",
     "object-assign": "^4.1.1",
     "prop-types": "^15.5.10",

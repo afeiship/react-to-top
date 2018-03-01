@@ -6,6 +6,7 @@ import noop from 'noop';
 import objectAssign from 'object-assign';
 import NxDomEvent from 'next-dom-event';
 import 'next-smooth-scroll';
+import 'next-throttle';
 
 
 export default class extends Component{
@@ -28,8 +29,9 @@ export default class extends Component{
 
   componentDidMount() {
     const { value } = this.props;
+    this._checkVisible = nx.throttle(this.checkVisible.bind(this), 100);
     !value && (
-      this._scrollRes = NxDomEvent.on(window,'scroll', this.checkVisible.bind(this))
+      this._scrollRes = NxDomEvent.on(window,'scroll', this._checkVisible)
     );
   }
 

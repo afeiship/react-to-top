@@ -22,4 +22,5 @@ $react-to-top-options:(
 ```
 
 ## bug:
-- [ ] z-index conflict with transition animate.
+- [x] z-index conflict with transition animate.
+- [ ] page height update trigger a bug.

@@ -27,11 +27,14 @@ export default class extends Component{
   /*===properties end===*/
 
   componentDidMount() {
-    this._scrollRes = NxDomEvent.on(window,'scroll', this.checkVisible.bind(this));
+    const { value } = this.props;
+    !value && (
+      this._scrollRes = NxDomEvent.on(window,'scroll', this.checkVisible.bind(this))
+    );
   }
 
   componentWillUnmount(){
-    this._scrollRes.destroy();
+    this._scrollRes && this._scrollRes.destroy();
   }
 
   checkVisible() {

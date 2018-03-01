@@ -25,7 +25,7 @@ class App extends React.Component{
   render(){
     return (
       <div className="hello-react-to-top">
-        <ReactToTop value={this.state.value} rate={0.8} ref='rc' style={{ right:20, bottom:20 }} onChange={this._onChange}>
+        <ReactToTop value={this.state.value} offset={200} rate={0.8} ref='rc' style={{ right:20, bottom:20 }} onChange={this._onChange}>
           <img src={require('./assets/back-to-top.png')} width="40" />
         </ReactToTop>
 

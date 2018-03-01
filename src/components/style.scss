@@ -15,7 +15,7 @@ $react-to-top-options:(
   outline: none;
   position: fixed;
   cursor: pointer;
-  transition: opacity $transition-duration;
+  transition: opacity $transition-duration, z-index $transition-duration;
 
   &:after{
     content:'';

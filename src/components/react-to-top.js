@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import noop from 'noop';
 import objectAssign from 'object-assign';
 import NxDomEvent from 'next-dom-event';
+import 'next-smooth-scroll';
 
 
 export default class extends Component{
@@ -14,12 +15,12 @@ export default class extends Component{
     value: PropTypes.bool,
     onChange: PropTypes.func,
     offset: PropTypes.number,
-    speed: PropTypes.number,
+    rate: PropTypes.number,
   };
 
   static defaultProps = {
     offset: 50,
-    speed: 0.8,
+    rate: 0.8,
     value: false,
     onChange: noop
   };
@@ -33,14 +34,6 @@ export default class extends Component{
     this._scrollRes.destroy();
   }
 
-  scrollTo = e => {
-    let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-    if (currentScroll > 0) {
-      window.requestAnimationFrame(this.scrollTo);
-      window.scrollTo(0, this.props.speed * currentScroll);
-    }
-  }
-
   checkVisible() {
     const { onChange, offset } = this.props;
     onChange({
@@ -51,11 +44,11 @@ export default class extends Component{
   }
 
   _onClick = e =>{
-    this.scrollTo();
+    nx.smoothScroll(this.props.rate);
   };
 
   render(){
-    const { className, value, speed, offset, ...props } = this.props;
+    const { className, value, rate, offset, ...props } = this.props;
     return (
       <button data-visible={value} onClick={this._onClick} {...props} className={classNames('react-to-top',className)} />
     );

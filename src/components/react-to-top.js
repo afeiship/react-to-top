@@ -44,7 +44,7 @@ export default class extends Component{
   }
 
   _onClick = e =>{
-    nx.smoothScroll(this.props.rate);
+    nx.smoothScroll(0,this.props.rate);
   };
 
   render(){

@@ -33,6 +33,13 @@ export default class extends Component{
   };
   /*===properties end===*/
 
+  constructor(inProps){
+    super(inProps);
+    this.state = {
+      value: inProps.value
+    };
+  };
+
   componentDidMount() {
     const { value, throttle } = this.props;
     this._checkVisible = nx.debounce(this.checkVisible, throttle, this);
@@ -41,15 +48,24 @@ export default class extends Component{
     );
   }
 
+  componentWillReceiveProps(inProps){
+    const { value } = this.inProps;
+    if( value !== this.state.value){
+      this.setState({ value });
+    }
+  }
+
   componentWillUnmount(){
     this._scrollRes && this._scrollRes.destroy();
   }
 
   checkVisible(inEvent) {
     const { onScroll, onChange, offset } = this.props;
-    const target = { value: window.pageYOffset > parseInt(offset) };
+    const value = window.pageYOffset > parseInt(offset);
     onScroll( inEvent );
-    onChange({ target });
+    this.setState({ value },()=>{
+      onChange({ target: { value }});
+    });
   }
 
   _onClick = e => {
@@ -62,7 +78,7 @@ export default class extends Component{
   render(){
     const { className, value, rate, offset, throttle,  onScroll, onScrollEnd, ...props } = this.props;
     return (
-      <button data-visible={value} onClick={this._onClick} {...props} className={classNames('react-to-top',className)} />
+      <button data-visible={this.state.value} onClick={this._onClick} {...props} className={classNames('react-to-top',className)} />
     );
   }
 }

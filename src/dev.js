@@ -8,7 +8,6 @@ import ReactToTop from './main';
 
 class App extends React.Component{
   state = {
-    value: false,
     items:[]
   };
 
@@ -18,10 +17,6 @@ class App extends React.Component{
     window.refs = this.refs;
     window.rc = this.refs.rc;
   }
-
-  _onChange = e =>{
-    this.setState({ value: e.target.value})
-  };
 
   _onUpdate = e=>{
     const {items} = this.state;
@@ -41,8 +36,6 @@ class App extends React.Component{
     return (
       <div className="hello-react-to-top">
         <ReactToTop
-         value={this.state.value}
-         onChange={this._onChange}
          onScrollEnd={this._onToTop}
          onScroll={this._onScroll}
          offset={200}

@@ -29,10 +29,25 @@ class App extends React.Component{
     this.setState({ items });
   };
 
+  _onToTop = e =>{
+    console.log('to top!');
+  };
+
+  _onScroll = e =>{
+    console.log('scroll');
+  };
+
   render(){
     return (
       <div className="hello-react-to-top">
-        <ReactToTop value={this.state.value} offset={200} rate={0.8} ref='rc' style={{ right:20, bottom:20 }} onChange={this._onChange}>
+        <ReactToTop
+         value={this.state.value}
+         onChange={this._onChange}
+         onScrollEnd={this._onToTop}
+         onScroll={this._onScroll}
+         offset={200}
+         rate={0.8}
+         ref='rc' style={{ right:20, bottom:20 }} >
           <img src={require('./assets/back-to-top.png')} width="40" />
         </ReactToTop>
 

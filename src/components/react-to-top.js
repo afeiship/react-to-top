@@ -49,7 +49,7 @@ export default class extends Component{
   }
 
   componentWillReceiveProps(inProps){
-    const { value } = this.inProps;
+    const { value } = inProps;
     if( value !== this.state.value){
       this.setState({ value });
     }

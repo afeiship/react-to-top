@@ -42,6 +42,7 @@ class App extends React.Component{
          value={true}
          ref='rc' style={{ right:20, bottom:20 }} >
           <img src={require('./assets/arrow-up.svg')} width="40" />
+          {/* <img src="https://en.js.cx/clipart/ball.svg" width="40" /> */}
         </ReactToTop>
 
         <button onClick={this._onUpdate}>Update page content</button>

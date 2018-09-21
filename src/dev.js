@@ -39,7 +39,6 @@ class App extends React.Component{
          onScrollEnd={this._onToTop}
          onScroll={this._onScroll}
          offset={200}
-         rate={0.8}
          ref='rc' style={{ right:20, bottom:20 }} >
           <img src={require('./assets/back-to-top.png')} width="40" />
         </ReactToTop>

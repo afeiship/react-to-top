@@ -1,14 +1,17 @@
-$react-to-top-options:(
-  active-opacity: 0.6,
+$react-to-top-options: (
   enlarge-distance: -10px,
   transition-duration: 0.3s
-)!default;
+) !default;
 
-.react-to-top{
-
-  $enlarge-distance: map-get($map: $react-to-top-options, $key: enlarge-distance);
-  $active-opacity: map-get($map: $react-to-top-options, $key: active-opacity);
-  $transition-duration: map-get($map: $react-to-top-options, $key: transition-duration);
+.react-to-top {
+  $enlarge-distance: map-get(
+    $map: $react-to-top-options,
+    $key: enlarge-distance
+  );
+  $transition-duration: map-get(
+    $map: $react-to-top-options,
+    $key: transition-duration
+  );
 
   background: none;
   border: none;
@@ -17,31 +20,30 @@ $react-to-top-options:(
   cursor: pointer;
   transition: opacity $transition-duration, z-index $transition-duration;
 
-  &:after{
-    content:'';
+  &:after {
+    content: "";
     position: absolute;
-    top:$enlarge-distance;
-    right:$enlarge-distance;
-    bottom:$enlarge-distance;
-    left:$enlarge-distance;
+    top: $enlarge-distance;
+    right: $enlarge-distance;
+    bottom: $enlarge-distance;
+    left: $enlarge-distance;
   }
 
-  &:active{
-    opacity: $active-opacity;
-  }
-
-
-  &[data-visible=true]{
+  &[data-visible="true"] {
     opacity: 1;
-    z-index:2;
+    z-index: 2;
   }
 
-  &[data-visible=false]{
+  &[data-visible="false"] {
     opacity: 0;
-    z-index:-1;
+    z-index: -1;
   }
 
-  >*{
+  &:active {
+    opacity: 0.6;
+  }
+
+  > * {
     vertical-align: top;
   }
 }

@@ -11,16 +11,12 @@
     onChange: PropTypes.func,
     onScrollEnd: PropTypes.func,
     onScroll: PropTypes.func,
-    throttle: PropTypes.number,
-    offset: PropTypes.number,
     rate: PropTypes.number,
   };
 
   static defaultProps = {
-    offset: 50,
-    rate: 0.8,
+    rate: 4,
     value: false,
-    throttle: 50,
     onChange: noop,
     onScroll: noop,
     onScrollEnd: noop,
@@ -36,7 +32,6 @@
 
 class App extends React.Component{
   state = {
-    value: false,
     items:[]
   };
 
@@ -46,10 +41,6 @@ class App extends React.Component{
     window.refs = this.refs;
     window.rc = this.refs.rc;
   }
-
-  _onChange = e =>{
-    this.setState({ value: e.target.value})
-  };
 
   _onUpdate = e=>{
     const {items} = this.state;
@@ -69,14 +60,11 @@ class App extends React.Component{
     return (
       <div className="hello-react-to-top">
         <ReactToTop
-         value={this.state.value}
-         onChange={this._onChange}
          onScrollEnd={this._onToTop}
          onScroll={this._onScroll}
          offset={200}
-         rate={0.8}
          ref='rc' style={{ right:20, bottom:20 }} >
-          <img src={require('./assets/back-to-top.png')} width="40" />
+          <img src={require('./assets/arrow-up.svg')} width="40" />
         </ReactToTop>
 
         <button onClick={this._onUpdate}>Update page content</button>

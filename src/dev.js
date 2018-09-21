@@ -40,7 +40,7 @@ class App extends React.Component{
          onScroll={this._onScroll}
          offset={200}
          ref='rc' style={{ right:20, bottom:20 }} >
-          <img src={require('./assets/back-to-top.png')} width="40" />
+          <img src={require('./assets/arrow-up.svg')} width="40" />
         </ReactToTop>
 
         <button onClick={this._onUpdate}>Update page content</button>

@@ -39,6 +39,7 @@ class App extends React.Component{
          onScrollEnd={this._onToTop}
          onScroll={this._onScroll}
          offset={200}
+         value={true}
          ref='rc' style={{ right:20, bottom:20 }} >
           <img src={require('./assets/arrow-up.svg')} width="40" />
         </ReactToTop>
